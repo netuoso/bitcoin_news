@@ -1,0 +1,113 @@
+<div id="wrapper">
+
+  <div id="bg"></div>
+  <div id="overlay"></div>
+  <div id="main">
+
+    <header id="header">
+      <h1>Bitcoin & News</h1>
+      <p>Developed by &nbsp;&bull;&nbsp; TechFlavor, LLC &nbsp;&bull;&nbsp; <a href="//www.techflavor.com/">www.TechFlavor.com</a></p>
+      <nav style="padding-bottom: 20px;">
+        <ul>
+          <li><a data-behavior="toggle-content-module" data-attribute="crypto" style="cursor: pointer;" class="icon fa-bitcoin"><span class="label">Crypto</span></a></li>
+          <li><a data-behavior="toggle-content-module" data-attribute="facebook" style="cursor: pointer;" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a data-behavior="toggle-content-module" data-attribute="github" style="cursor: pointer;" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a data-behavior="close" style="cursor: pointer;" class="icon fa-close"><span class="label">Show/Hide</span></a></li>
+          <!-- <li><a data-behavior="toggle-content-module" data-attribute="email" style="cursor: pointer;" class="icon fa-envelope-o"><span class="label">Email</span></a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <footer id="footer">
+      <span class="copyright">&copy; TechFlavor, LLC : <a href="//www.techflavor.com">www.TechFlavor.com</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<div id="scrolling">
+
+  <div id="content" class="container-fluid">
+    <div data-behavior="content-module" class="github">
+      <div class="jumbotron">
+        <div class="container">
+          <a class="github-button" href="https://github.com/TechFlavor" data-style="mega" aria-label="Follow @TechFlavor on GitHub">Follow @TechFlavor</a>
+        </div>
+      </div>
+    </div>
+
+    <div data-behavior="content-module" class="facebook">
+      <div class="jumbotron">
+        <div class="container">
+          <div class="fb-page" data-href="https://www.facebook.com/techflavor" data-width="500" data-height="450" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/techflavor"><a href="https://www.facebook.com/techflavor">TechFlavor</a></blockquote></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-behavior="content-module" class="crypto">
+      <div class="jumbotron">
+        <div class="container">
+          <div class="col-xs-12">
+            <div class="row">
+              <h2>Active Exchange: <div data-behavior="active-exchange-display" style="display:inline;"></div></h2><br />
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exchangeModal">Choose Exchange</button>
+            </div>
+            <div data-behavior="active-exchange" data-attribute="<%= params[:exchange] || 'btce' %>"></div>
+          </div>
+          <div class="col-xs-6 btc">
+            <h2>Bitcoin</h2>
+            <hr />
+            <table class="table">
+              <tr>
+                <th>Last:</th>
+                <th>High:</th>
+                <th>Low:</th>
+                <th>Average:</th>
+              </tr>
+              <tr>
+                <td><div class="btc-usd" data-behavior="btc_usd_ticker_last"></div></td>
+                <td><div class="btc-usd" data-behavior="btc_usd_ticker_high"></div></td>
+                <td><div class="btc-usd" data-behavior="btc_usd_ticker_low"></div></td>
+                <td><div class="btc-usd" data-behavior="btc_usd_ticker_average"></div></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-xs-6 ltc">
+            <h2>Litecoin</h2>
+            <hr />
+            <table class="table">
+              <tr>
+                <th>Last:</th>
+                <th>High:</th>
+                <th>Low:</th>
+                <th>Average:</th>
+              </tr>
+              <tr>
+                <td><div class="ltc-btc" data-behavior="ltc_btc_ticker_last"></div></td>
+                <td><div class="ltc-btc" data-behavior="ltc_btc_ticker_high"></div></td>
+                <td><div class="ltc-btc" data-behavior="ltc_btc_ticker_low"></div></td>
+                <td><div class="ltc-btc" data-behavior="ltc_btc_ticker_average"></div></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-behavior="content-module" class="email">
+      <div class="jumbotron">
+        <div class="container">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'exchange_modal' %>
+
+<script>
+  window.onload = function() { document.body.className = ''; }
+  window.ontouchmove = function() { return false; }
+  window.onorientationchange = function() { document.body.scrollTop = 0; }
+</script>
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
