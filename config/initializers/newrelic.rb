@@ -10,40 +10,19 @@
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
-common: &default_settings
-  # Required license key associated with your New Relic account.
+common:
   license_key: 397e2b9da658e9e0ddb4cd5a8fa66cb9e1f222d8
-
-  # Your application name. Renaming here affects where data displays in New
-  # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: My Application
-
-  # To disable the agent regardless of other settings, uncomment the following:
-  # agent_enabled: false
-
-  # Logging level for log/newrelic_agent.log
+  app_name: Bitcoin & News
   log_level: info
-
-
 # Environment-specific settings are in this section.
 # RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
 # If your application has other named environments, configure them here.
 development:
-  <<: *default_settings
-  app_name: My Application (Development)
-
-  # NOTE: There is substantial overhead when running in developer mode.
-  # Do not use for production or load testing.
+  app_name: Bitcoin & News (Development)
   developer_mode: true
-
 test:
-  <<: *default_settings
-  # It doesn't make sense to report to New Relic from automated test runs.
   monitor_mode: false
-
 staging:
-  <<: *default_settings
-  app_name: My Application (Staging)
-
+  app_name: Bitcoin & News (Staging)
 production:
-  <<: *default_settings
+  app_name: Bitcoin & News (production)
