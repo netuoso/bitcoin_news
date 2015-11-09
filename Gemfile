@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails'
+gem 'newrelic_rpm'
 gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
